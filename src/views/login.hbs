@@ -1,0 +1,294 @@
+<!--
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    body {
+      background-color:#6e0d76;
+      font-family: Arial, sans-serif;
+    }
+    .jumbotron {
+      background-image: url('https://th.bing.com/th/id/OIP.uponPorR2St4WrRw1EzZhAHaNK?rs=1&pid=ImgDetMain');
+      background-size: cover;
+      width:device-width;
+      height: 600px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .jumbotron h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0 20px 50px 20px;
+    }
+    .jumbotron p {
+      font-size: 1.5rem;
+      margin: 0 20px 50px 20px;
+    }
+    .btn-primary {
+      background-color: #b803e0;
+      border-color: #b803e0;
+      width: 50%;
+      align-self: center;
+      font-size: 1.5rem;
+    }
+    .btn-primary:hover {
+      background-color: #6e0d76;
+      border-color: #6e0d76;
+    }
+    .btn-primary:active {
+      background-color: rgb(206, 81, 14) !important;
+      border-color: rgb(206, 81, 14) !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>Login</h1>
+    <p>Con My Games Tracker podrás administrar tus juegos favoritos para no perderte de nada.</p>
+    <a href="/index" class="btn btn-primary btn-lg">Ingresar</a>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Feature 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, eget consequat magna felis a magna.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Feature 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, eget consequat magna felis a magna.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Feature 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, eget consequat magna felis a magna.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container-fluid bg-dark text-light text-center py-3">
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Helvetica:wght@300&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Helvetica", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('https://lh4.googleusercontent.com/GM30QGTr9nFQKoy9dIICQTANtVc18UNmBKIJUbgcVpLmx5wC82EB_hLGFjdgch3Je0NQMBroxFt7WffyL_OkqABqDgW3kf2oKAg4XX0xcAci7Aic6WcmoRj5O4VMU0Hq6A=w1280');
+      background-size: cover;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .ring {
+      position: relative;
+      width: 100%;
+      max-width: 500px; /* Máximo ancho de 500px */
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ring i {
+      position: absolute;
+      inset: 0;
+      border: 2px solid #fff;
+      transition: 0.5s;
+    }
+
+    .ring i:nth-child(1) {
+      border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+      animation: animate 6s linear infinite;
+    }
+
+    .ring i:nth-child(2) {
+      border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+      animation: animate 4s linear infinite;
+    }
+
+    .ring i:nth-child(3) {
+      border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+      animation: animate2 10s linear infinite;
+    }
+
+    .ring:hover i {
+      border: 6px solid var(--clr);
+      filter: drop-shadow(0 0 20px var(--clr));
+    }
+
+    @keyframes animate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate2 {
+      0% {
+        transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    .login {
+      position: absolute;
+      width: 100%;
+      max-width: 600px; /* Máximo ancho de 300px */
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .login h2 {
+      font-size: 2em;
+      color: #fff;
+      text-align: center;
+    }
+
+    .login .inputBx {
+      position: relative;
+      width: 300px;
+      padding-bottom: 10px;
+    }
+
+    .login .inputBx input {
+      position: relative;
+      width: 100%;
+      padding: 12px 20px;
+      background: transparent;
+      border: 2px solid #fff;
+      border-radius: 40px;
+      font-size: 1em;
+      color: #fff;
+      box-shadow: none;
+      outline: none;
+    }
+
+    .login .inputBx input[type="submit"] {
+      width: 100%;
+      background-color: #d702a5;
+      border: none;
+      cursor: pointer;
+    }
+    .login .inputBx input[type="loginDone"] {
+      width: 100%;
+      background-color: black;
+      border: none;
+      cursor: pointer;
+      text-align:center;
+    }
+
+    .login .inputBx input::placeholder {
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .login .inputBx input[type="submit"]:hover,
+.login .inputBx input[type="loginDone"]:hover {
+  animation: buttonHover 0.3s ease forwards;
+}
+
+/* Definir la animación */
+@keyframes buttonHover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+    .custom-bg-purple2 {
+      background-color: hsl(299, 93%, 20%);
+    }
+
+    /* Media query para pantallas más pequeñas */
+    @media screen and (max-width: 600px) {
+      .ring {
+        max-width: 500px; /* Reducir el tamaño del anillo */
+      }
+
+      .login {
+        max-width: 350px; /* Reducir el tamaño del formulario de login */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!--ring div starts here-->
+  <div class="ring">
+    <i style="--clr:#9800de;"></i>
+    <i style="--clr:#d702a5;"></i>
+    <i style="--clr:#4aff44;"></i>
+    <div class="login">
+      <h2><strong>¡Regístrate!</strong></h2>
+      <form action="/index">
+        <div class="inputBx">
+          <input type="email" placeholder="Correo">
+        </div>
+        <div class="inputBx">
+          <input type="password" placeholder="Contraseña">
+        </div>
+        <div class="inputBx">
+          <input type="submit" value="Registrarme">
+        </div>
+      </form>
+      <form>
+        <div class="inputBx">
+          <input type="loginDone" value="Ya tengo cuenta" onclick="function()">
+        </div>
+        <div class="inputBx">
+          <input type="loginDone" value="Microsoft Auth">
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--ring div ends here-->
+  </script>
+</body>
+
+</html>

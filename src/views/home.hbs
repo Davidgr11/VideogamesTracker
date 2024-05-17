@@ -1,0 +1,339 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Home</title>
+  <link rel="stylesheet" href="https://bootswatch.com/5/zephyr/bootstrap.min.css" />
+  <style>
+    @keyframes scaleIn {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.05);
+      }
+    }
+    body {
+      background-color: black;
+    }
+
+    .card {
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+      animation-fill-mode: forwards;
+      max-height: 800px;
+    }
+    .card:hover {
+      animation-name: scaleIn;
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .green{
+      background-color: hsl(117, 81%, 45%);
+      border-color: hsl(117, 81%, 45%);
+      color:black;
+    }
+    .green:hover{
+      background-color: hsl(117, 79%, 31%);
+      border-color: hsl(117, 79%, 31%);;
+    }
+    .purple{
+      background-color: hsl(295, 93%, 31%);
+      border-color: hsl(295, 93%, 31%);
+    }
+    .cgreen {
+      color: hsl(117, 81%, 45%);
+      text-align: justify;
+    }
+    .blueI {
+      background-color: hsl(202, 100%, 92%);
+      border-color:hsl(202, 100%, 92%);
+    }
+    .blueI:hover{
+      background-color: hsl(202, 100%, 92%);
+      border-color:hsl(202, 100%, 92%);
+    }
+    .blueB {
+      background-color: hsl(184, 85%, 52%);
+      border-color:hsl(184, 85%, 52%);
+      color:black;
+    }
+    .blueB:hover{
+      background-color: hsl(189, 76%, 47%);
+      border-color:hsl(189, 76%, 47%);
+    }
+    .pink1 {
+      background-color: hsl(332, 99%, 61%);
+      border-color:hsl(332, 99%, 61%);
+      color:black;
+    }
+    .pink1:hover{
+      background-color: hsl(332, 77%, 41%);
+      border-color:hsl(332, 77%, 41%);
+    }
+    .card-text {
+      max-height: 4em; /* Establece la altura máxima en 3 líneas de texto */
+      overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido excede la altura máxima */
+      text-align: justify;
+    }
+    .form-check-input:checked {
+      background-color: #fefa1b; /* Cambia el color de fondo cuando el checkbox está marcado */
+      border-color: #fefa1b; /* Cambia el color del borde cuando el checkbox está marcado */
+      size: 4em;
+    }
+    .cyellow {
+      color: #fefa1b;
+    }
+    .cdate {
+      color: #75730b;
+    }
+    .cpink2 {
+      color: hsl(332, 100%, 85%);
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <!--HEADER WITH LOGO, USER AND NAVBAR-->
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://lh3.googleusercontent.com/RHFmhdp0r4cR2FRK3M-_-R2XlhEMVZrfB3nZVxjzlhOScKyLz-_9hVQig2udG6W5jK3UKRM4D5rehc2lHwWJ2P4=w1280" style="width:3em;heigth:3em;" alt="GSTlogo">
+        </a>
+        <a class="navbar-brand cpink2" href="#">Game Space Tracker</a>
+
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/search">Búsquedas</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--CONTAINER-->
+  <div class="container mt-4" style="color: #d3d3d3; padding: 0.5em; text-align: center; width: 50%; margin: 0 auto;">
+    <h2 class="mb-4">Mis Videojuegos</h2>
+    <p class="cyellow" style="text-align:center"><i>Da click sobre los botónes para añadir o consultar videojuegos.</i></p>
+  </div>
+  <span></span>
+
+<!--BOTÓN PARA AÑADIR UN NUEVO ELEMENTO-->
+<button type="button" class="btn btn-success green" onclick="toggleContactForm()" style="margin: 2em auto 0;display: block; width: 30%;">
+  <i class="fas fa-plus"></i>
+  Nuevo</button>
+  <button type="button" class="btn btn-success blueB" onclick="toggleContactForm2()" style="margin: 2em auto 0;display: block; width: 30%;">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  Consultar</button>
+
+
+<!--CONTENEDOR EMERGENTE PARA AÑADIR-->
+<div id="contactFormContainer" class="container"  style="{{#if game.id}}display: block;{{else}}display: none;{{/if}}">
+    <div class="container-fluid p-4">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card bg-dark text-light">
+          <div class="card-header text-center">
+            <h1 class="h4 text-white">Agregar/Editar Videojuego</h1>
+            <p class="cgreen"><i>Para editar un contacto debes sustituir los valores por los nuevos.</i></p>
+          </div>
+          <div class="card-body">
+            <form id="gameForm" action="{{#unless game.id}}/home/newGame{{else}}/home/updateGame/{{game.id}}{{/unless}}" method="POST">
+              
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Nombre del videojuego:</label>
+                    <input type="text" class="form-control blueI" id="name" name="name" value="{{game.name}}" placeholder="Nombre del videojuego" required>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="mb-3">
+
+                    <label class="form-label" for="fav">Marcar como favorito:</label>
+                    <div class="form-check">
+                      <small class="cyellow"><i>click para habilitar &#11088;</i></small>
+                      <input class="form-check-input form-check-input-lg" type="checkbox" id="fav" name="fav" value="{{game.fav}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="advance" class="form-label">Porcentaje de avance:</label>
+                    <input type="number" class="form-control blueI" id="advance" name="advance" value="{{game.advance}}" placeholder="% de 0-100" required>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="date" class="form-label">Fecha de adquisición del juego:</label>
+                    <input type="date" class="form-control blueI" id="date" name="date" value="{{game.date}}" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="info" class="form-label">Nota informativa:</label>
+                <input type="text" class="form-control blueI" id="info" name="info" value="{{game.info}}" placeholder="Descripción breve..." required>
+                <!--<textarea class="form-control blueI" id="lastName" name="lastName" rows="4" value="{{contact.lastName}}" placeholder="Descripción breve..."></textarea>-->
+              </div>
+              
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="bkImage" class="form-label">URL de la imágen:</label>
+                    <input type="text" class="form-control blueI" id="bkImage" name="bkImage" value="{{game.bkImage}}" placeholder="URL de la imagen" required>
+                  </div>
+                </div>
+                <div class="col" style="text-align: center;">
+                   <img src="{{game.bkImage}}" class="card-img-top" alt="Videogame Image" style="width:6em; height:4em;{{#if game.id}}display: block;{{else}}display: none;{{/if}}">
+                </div>
+              </div>
+              
+              <!--<button type="submit" class="btn btn-primary blueB">Enviar</button>-->
+              <div style="text-align: center;">
+                <button type="button" class="btn btn-primary pink1" onclick="cancelForm()">Cancelar</button>
+                <button type="submit" class="btn btn-primary blueB">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="contactFormContainer2" class="container" style="display:none;">
+  <!--CARDS PARA MOSTRAR LOS VIDEOJUEGOS-->
+  <div class="container-fluid p-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {{#each games}}
+      <div class="col">
+        <div class="card">
+          <img src="{{bkImage}}" class="card-img-top" alt="Videogame Image">
+          <div class="card-body">
+            <h5 class="card-title">{{name}} {{#if fav}}&#11088;{{/if}}</h5>
+            <p class="card-text">{{info}}</p>
+            
+            <div class="progress blueI">
+              <div class="progress-bar progress-bar-striped progress-bar-animated green" role="progressbar"
+                          aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{advance}}%">
+                          {{advance}}% completed
+              </div>
+            </div>
+            
+
+            <div class="text-center">
+              <small class="cdate"><i>Adquirido el {{date}}</i></small>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <script>const id = </script>
+            <a class="btn btn-danger pink1" onclick="confirmationDelete('{{id}}')">Delete</a>
+            <a href="/home/editGame/{{id}}" class="btn btn-primary blueB" onclick="toggleContactForm()">Edit</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+  <!--CONTENEDOR DE CONFIRMACIÓN DE ELIMINACIÓN EMEGENTE-->
+  <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark text-light">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmationModalLabel">¿Estás seguro que deseas eliminar el elemento?</h5>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+      </div>
+      <div class="modal-body cgreen">
+        Una vez realizada esta acción no podrás recuperar dicho elemento.
+      </div>
+      <div class="modal-footer bg-dark text-light">
+        <button type="button" class="btn btn-secondary blueI" data-dismiss="modal" onclick="cancelForm()">Cancelar</button>
+         <a id="confirmDeleteButton" class="btn btn-danger" href="#">Confirmar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/f7deaf5ab6.js" crossorigin="anonymous"></script>
+    <script>
+  function toggleContactForm() {
+    var formContainer = document.getElementById('contactFormContainer');
+    if (formContainer.style.display === 'none') {
+      formContainer.style.display = 'block';
+    } else {
+      formContainer.style.display = 'none';
+    }
+  }
+  function toggleContactForm2() {
+    var formContainer = document.getElementById('contactFormContainer2');
+    if (formContainer.style.display === 'none') {
+      formContainer.style.display = 'block';
+    } else {
+      formContainer.style.display = 'none';
+    }
+  }
+  function cancelForm(){
+    window.location.href = "/home";
+  }
+  function confirmationDelete(id) {
+    console.log("ID:", id); 
+    $('#deleteConfirmationModal').modal('show');
+    document.getElementById('confirmDeleteButton').setAttribute('href', '/home/deleteGame/'+id);
+  }
+  function deleteID(id){
+    window.location.href = "/home/deleteGame/"+id;
+  }
+  
+  document.getElementById('gameForm').addEventListener('submit', function(event) {
+    // Evitar que el formulario se envíe automáticamente
+    event.preventDefault();
+
+    // Obtener el valor actual del checkbox fav
+    var favCheckbox = document.getElementById('fav');
+    var favValue = favCheckbox.checked; // true si está marcado, false si no
+
+    // Establecer un valor predeterminado (false) si el checkbox no está marcado
+    favCheckbox.value = favValue ? 'true' : 'false';
+
+    // Usar el operador ternario para asignar un valor predeterminado (false) si fav es undefined
+    var fav = typeof fav !== 'undefined' ? fav : false;
+
+    // Enviar el formulario
+    this.submit();
+});
+
+
+</script>
+</body>
+
+</html>

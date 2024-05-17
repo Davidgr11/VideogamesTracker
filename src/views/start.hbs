@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color:#6e0d76;
+      font-family: Arial, sans-serif;
+    }
+    .jumbotron {
+      background-image: url("https://lh3.googleusercontent.com/TlqoGJPrkIL0szxqJUpMNEwHnSj9Lo59MonSxsveCbKKVEIqA-rluunkXy1I9xX7B2gURDz9aldCAhZsRtmFDABKlk5DphindnqbThwTcv1C-G2dl2cFBq5rXRGQGPJfnw=w1280");
+      background-size: 100% 100%;
+      width:100%;
+      height: 600px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      vertical-align: top;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .jumbotron h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0 20px 50px 20px;
+    }
+    .jumbotron p {
+      font-size: 1.5rem;
+      margin: 0 20px 50px 20px;
+    }
+    .btn-primary {
+      background-color: #21b92b;
+      border-color: #21b92b;
+      width: 50%;
+      align-self: center;
+      font-size: 1.5rem;
+    }
+    .btn-primary:hover {
+      background-color: rgba(18, 209, 230, 0.874) ;
+      border-color: rgba(18, 209, 230, 0.874)  ;
+      animation: buttonHover 0.3s ease forwards;
+    }
+    .btn-primary:active {
+      background-color: rgba(18, 228, 251, 0.874) !important;
+      border-color: rgba(18, 228, 251, 0.874) !important;
+    }
+    .custom-bg-purple2 {
+	background-color: hsl(299, 93%, 20%);
+}
+@keyframes buttonHover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="jumbotron">
+    <img src="https://lh3.googleusercontent.com/RHFmhdp0r4cR2FRK3M-_-R2XlhEMVZrfB3nZVxjzlhOScKyLz-_9hVQig2udG6W5jK3UKRM4D5rehc2lHwWJ2P4=w1280" style="width:10em;heigth:10em;">
+    <h1>Game Space Tracker</h1>
+    <p>¡Bienvenido!<br>Aquí podrás administrar tus juegos favoritos para no perderte de nada.</p>
+    <a href="/home" class="btn btn-primary btn-lg">Entrar</a>
+  </div>
+
+  <footer class="container-fluid bg-black text-light text-center py-3">
+    <p>&copy; 2024 David González - Ricardo Gómez - Jose Vera</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

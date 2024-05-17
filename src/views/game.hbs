@@ -1,0 +1,222 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Home</title>
+  <link rel="stylesheet" href="https://bootswatch.com/5/zephyr/bootstrap.min.css" />
+  <style>
+    @keyframes scaleIn {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.05);
+      }
+    }
+    body {
+      background-color: black;
+    }
+
+    .card {
+        margin-top: 40px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+      animation-fill-mode: forwards;
+      max-height: 1000px;
+    }
+    .card:hover {
+      animation-name: scaleIn;
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .green{
+      background-color: hsl(117, 81%, 45%);
+      border-color: hsl(117, 81%, 45%);
+      color:rgb(198, 149, 149);
+    }
+    .green:hover{
+      background-color: hsl(117, 79%, 31%);
+      border-color: hsl(117, 79%, 31%);;
+    }
+    .purple{
+      background-color: hsl(295, 93%, 31%);
+      border-color: hsl(295, 93%, 31%);
+    }
+    .cgreen {
+      color: hsl(117, 81%, 45%);
+      text-align: justify;
+    }
+    .blueI {
+      background-color: hsl(202, 100%, 92%);
+      border-color:hsl(202, 100%, 92%);
+    }
+    .blueI:hover{
+      background-color: hsl(202, 100%, 92%);
+      border-color:hsl(202, 100%, 92%);
+    }
+    .blueB {
+      background-color: hsl(184, 85%, 52%);
+      border-color:hsl(184, 85%, 52%);
+      color:black;
+    }
+    .blueB:hover{
+      background-color: hsl(189, 76%, 47%);
+      border-color:hsl(189, 76%, 47%);
+    }
+    .pink1 {
+      background-color: hsl(332, 99%, 61%);
+      border-color:hsl(332, 99%, 61%);
+      color:black;
+    }
+    .pink1:hover{
+      background-color: hsl(332, 77%, 41%);
+      border-color:hsl(332, 77%, 41%);
+    }
+    .card-text {
+      max-height: 4em; /* Establece la altura máxima en 3 líneas de texto */
+      overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido excede la altura máxima */
+      text-align: justify;
+    }
+    .form-check-input:checked {
+      background-color: #fefa1b; /* Cambia el color de fondo cuando el checkbox está marcado */
+      border-color: #fefa1b; /* Cambia el color del borde cuando el checkbox está marcado */
+      size: 4em;
+    }
+    .cyellow {
+      color: #fefa1b;
+    }
+    .cdate {
+      color: #75730b;
+    }
+    .cpink2 {
+      color: hsl(332, 100%, 85%);
+    }
+
+    .blueColor {
+      color: hsl(184, 85%, 52%);
+    }
+
+  </style>
+</head>
+
+<body>
+  <!--HEADER WITH LOGO, USER AND NAVBAR-->
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://lh3.googleusercontent.com/RHFmhdp0r4cR2FRK3M-_-R2XlhEMVZrfB3nZVxjzlhOScKyLz-_9hVQig2udG6W5jK3UKRM4D5rehc2lHwWJ2P4=w1280" style="width:3em;heigth:3em;" alt="GSTlogo">
+        </a>
+        <a class="navbar-brand cpink2" href="#">Game Space Tracker</a>
+
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/search">Back</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!--CONTAINER-->
+  <div class="container mt-4" style="color: #d3d3d3; padding: 0.5em; text-align: center; width: 50%; margin: 0 auto;">
+    <h2 class="mb-4">Juego Seleccionado</h2>
+    <p class="blueColor" style="text-align:center"><i>Para regresar a la página de búsquedas, da click en "back".</i></p>
+  </div>
+  <span></span>
+
+
+
+<div class="col-6 mx-auto">
+    <div class="card">
+        <img src="{{game.bkImage}}" class="card-img-top" alt="Videogame Image" style="max-width: 100%; max-height: 200px; object-fit: contain;">
+        <div class="card-body">
+            <h5 class="card-title">{{game.name}} {{#if game.fav}}&#11088;{{/if}}</h5>
+            <p class="card-text">{{game.info}}</p>
+            <div class="progress blueI">
+                <div class="progress-bar progress-bar-striped progress-bar-animated green" role="progressbar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{game.advance}}%">
+                    {{game.advance}}% completed
+                </div>
+            </div>
+            <div class="text-center">
+                <small class="cdate"><i>Adquirido el {{game.date}}</i></small>
+            </div>
+        </div>
+        <!--<div class="card-footer text-center">
+            <script>const id = </script>
+            <a class="btn btn-danger pink1" onclick="confirmationDelete('{{id}}')">Delete</a>
+            <a href="/home/editGame/{{id}}" class="btn btn-primary blueB" onclick="toggleContactForm()">Edit</a>
+        </div>-->
+    </div>
+</div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/f7deaf5ab6.js" crossorigin="anonymous"></script>
+    <script>
+  function toggleContactForm() {
+    var formContainer = document.getElementById('contactFormContainer');
+    if (formContainer.style.display === 'none') {
+      formContainer.style.display = 'block';
+    } else {
+      formContainer.style.display = 'none';
+    }
+  }
+  function toggleContactForm2() {
+    var formContainer = document.getElementById('contactFormContainer2');
+    if (formContainer.style.display === 'none') {
+      formContainer.style.display = 'block';
+    } else {
+      formContainer.style.display = 'none';
+    }
+  }
+  function cancelForm(){
+    window.location.href = "/home";
+  }
+  function confirmationDelete(id) {
+    console.log("ID:", id); 
+    $('#deleteConfirmationModal').modal('show');
+    document.getElementById('confirmDeleteButton').setAttribute('href', '/home/deleteGame/'+id);
+  }
+  function deleteID(id){
+    window.location.href = "/home/deleteGame/"+id;
+  }
+  
+  document.getElementById('gameForm').addEventListener('submit', function(event) {
+    // Evitar que el formulario se envíe automáticamente
+    event.preventDefault();
+
+    // Obtener el valor actual del checkbox fav
+    var favCheckbox = document.getElementById('fav');
+    var favValue = favCheckbox.checked; // true si está marcado, false si no
+
+    // Establecer un valor predeterminado (false) si el checkbox no está marcado
+    favCheckbox.value = favValue ? 'true' : 'false';
+
+    // Usar el operador ternario para asignar un valor predeterminado (false) si fav es undefined
+    var fav = typeof fav !== 'undefined' ? fav : false;
+
+    // Enviar el formulario
+    this.submit();
+});
+
+
+</script>
+</body>
+
+</html>

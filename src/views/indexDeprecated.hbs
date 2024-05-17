@@ -1,0 +1,137 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/5/zephyr/bootstrap.min.css"
+    />
+    <style>
+    .custom-bg-purple {
+  background-color: hsl(295, 93%, 31%);
+}
+.custom-bg-dp {
+  background-color: hsl(331, 58%, 52%);
+}
+.custom-bg-purple2 {
+	background-color: hsl(299, 93%, 20%);
+}
+.custom-bg-dp2 {
+	background-color: hsl(331, 58%, 38%);
+    }
+body{
+	background-color:black;
+}
+.alt-bg {
+	background-image: url("https://th.bing.com/th/id/OIP.UuIb44y1NU8LEmgFSlwohwHaEK?rs=1&pid=ImgDetMain");
+}
+
+</style>
+  </head>
+
+  <body>
+  <header>
+  <nav class="navbar navbar-expand-sm custom-bg-purple2 navbar-dark">
+  <div class="container-fluid">
+  <a class="navbar-brand" href="#">
+      <img src="https://pluspng.com/img-png/png-video-game-big-image-png-2400.png" alt="GSTlogo" style="width:40px;" class="rounded-pill"> 
+    </a>
+    <a class="navbar-brand" href="#">User: {{userName}}</a>
+  </div>
+</nav>
+  </header>
+    <div class="container-fluid p-4 alt-bg">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+  <div class="card custom-bg-dp text-light">
+    <div class="card-header custom-bg-dp2">
+      <h1 class="h2 text-white text-center">My Videogame List</h1>
+    </div>
+    <div class="card-body">
+    {{#if contacts}}
+        <ul class="list-group">
+            {{#each contacts}}
+            <li class="list-group-item custom-bg-purple text-white">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6 text-center">
+                        <h4 class="h4">{{firstName}} {{lastName}}</h3>
+                        <p>{{phone}}</p>
+                    </div>
+                    <div class="col-12 col-md-6 text-center">
+     <a href="/index/showImage/{{id}}" class="btn btn-success d-block mb-2">Show</a>
+     <a href="/index/editContact/{{id}}" class="btn btn-primary d-block mb-2">Edit</a>
+     <a href="/index/deleteContact/{{id}}" class="btn btn-danger d-block mb-2">Delete</a>
+</div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p class="fs-4 text-center">No Contacts Yet.</p>
+    {{/if}}
+</div>
+
+    <div class="card-footer custom-bg-dp2">
+    <h1 class="h2 text-white text-center">Your Form</h1>
+      <form action="{{#unless contact.id}}/index/newContact{{else}}/index/updateContact/{{contact.id}}{{/unless}}" method="POST">
+        <div class="row align-items-center">
+          <div class="col">
+            <label for="firstName">First Name:</label>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="Firstname"
+              class="form-control mb-3"
+              value="{{contact.firstName}}"
+              autofocus
+            />
+          </div>
+          </div>
+          <div class="row align-items-center">
+          <div class="col">
+            <label for="lastName">Last Name:</label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Lastname"
+              class="form-control mb-3"
+              value="{{contact.lastName}}"
+            />
+          </div>
+          </div>
+        <div class="row align-items-center">
+          <div class="col">
+            <label for="phone">Phone:</label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone"
+              class="form-control mb-3"
+              value="{{contact.phone}}"
+            />
+          </div>
+        </div>
+        {{#if contact.id}}
+          <button class="btn btn-primary btn-block">
+            Update
+          </button>
+          <a href="/" class="btn btn-secondary">
+            Cancel
+          </a>
+        {{else}}
+          <button class="btn btn-success btn-block">
+            Add
+          </button>
+        {{/if}}
+      </form>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </body>
+
+</html>
