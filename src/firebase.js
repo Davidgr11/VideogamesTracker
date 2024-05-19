@@ -8,6 +8,7 @@ const {getFirestore } = require('firebase-admin/firestore')//llamamos a firestor
 //funciones
 initializeApp({//iniciamos la app con las credenciales default
     credential: applicationDefault(),
+    
 });
 
 
