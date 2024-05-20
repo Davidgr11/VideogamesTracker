@@ -228,7 +228,7 @@ function renderGames(games) {
 
     const button = document.createElement('a');
     button.classList.add('btn', 'btn-primary', 'blueB');
-    button.textContent = 'Ir a otra pantalla'; // Texto del botón
+    button.textContent = 'Ver detalles del juego'; // Texto del botón
     button.href = `/selectedGames/${game.id}`; // Enlace con el id del juego
     button.addEventListener('click', () => {
       window.location.href = button.href; // Redirige al hacer clic en el botón
